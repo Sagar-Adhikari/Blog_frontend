@@ -1,10 +1,12 @@
-import { Router } from "@angular/router";
-import { environment } from "./../../../../environments/environment";
-import { FormBuilder, FormGroup, NgForm, Validators } from "@angular/forms";
-import { Component, OnInit } from "@angular/core";
-import { GlobalService } from "src/app/global.service";
-import { BlogService } from "../../../services/blog.service";
-import { SnackBarService } from "../../../services/snackbar.service";
+import { GlobalService } from 'src/app/global.service';
+
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { environment } from '../../../../environments/environment';
+import { BlogService } from '../../../services/blog.service';
+import { SnackBarService } from '../../../services/snackbar.service';
 
 @Component({
   selector: "app-create-blog",

@@ -1,10 +1,10 @@
-import { IUser } from "../../../models/user.interface";
-import { SnackBarService } from "src/app/services/snackbar.service";
+import { SnackBarService } from 'src/app/services/snackbar.service';
 
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
-import { GlobalService } from "../../../global.service";
-import { UserService } from "../../../services/user.service";
+import { GlobalService } from '../../../global.service';
+import { IUser } from '../../../models/user.interface';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: "app-users",

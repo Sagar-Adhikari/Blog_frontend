@@ -1,7 +1,8 @@
-import { IUser } from "../models/user.interface";
-import { UserService } from "./user.service";
-import { Injectable } from "@angular/core";
-import { CanActivate } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { CanActivate } from '@angular/router';
+
+import { IUser } from '../models/user.interface';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: "root",

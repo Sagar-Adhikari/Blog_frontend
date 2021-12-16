@@ -1,18 +1,15 @@
-import { MaterialModules } from "./shared/material.models";
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 
-import { ngxLoadingAnimationTypes, NgxLoadingModule } from "ngx-loading";
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
-
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 // import { AddEmployeeComponent } from "./components/add-employee/add-employee.component";
-
-import { AuthModule } from "./modules/auth/auth.module";
+import { AuthModule } from './modules/auth/auth.module';
+import { MaterialModules } from './shared/material.models';
 
 @NgModule({
   declarations: [AppComponent],

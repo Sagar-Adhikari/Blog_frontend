@@ -1,14 +1,14 @@
-import { ngxLoadingAnimationTypes, NgxLoadingModule } from "ngx-loading";
-import { MaterialModules } from "../../shared/material.models";
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
+import { UsersComponent } from 'src/app/modules/auth/users/users.component';
 
-import { UsersComponent } from "src/app/modules/auth/users/users.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
-import { AuthRoutingModule } from "./auth-routing.module";
-import { LoginComponent } from "./login/login.component";
-import { RegisterUserComponent } from "./register-user/register-user.component";
+import { MaterialModules } from '../../shared/material.models';
+import { AuthRoutingModule } from './auth-routing.module';
+import { LoginComponent } from './login/login.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 @NgModule({
   declarations: [LoginComponent, RegisterUserComponent, UsersComponent],

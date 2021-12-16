@@ -31,24 +31,33 @@
     </mat-card-content>
   </div>
 
-  <button mat-button (click)="comments()">Comments</button>
+  <button mat-button (click)="comment()">Comments</button>
 
-  <div *ngIf="commentButtonClicked"></div>
+  <div *ngIf="commentButtonClicked">
+    <mat-list role="list" *ngFor="let comment of comments">
+      <div style="background-color: gray; display: flex">
+        <mat-list-item role="listitem"> {{ comment.comment }}</mat-list-item>
+        <span style="align-items: center; display: flex"
+          >Created On : {{ comment.createdAt | date }}</span
+        >
+      </div>
+    </mat-list>
 
-  <form
-    class="blog-form"
-    novalidate
-    [formGroup]="createCommentForm"
-    (ngSubmit)="onSubmit(createCommentForm)"
-  >
-    <mat-form-field style="width: 95%" appearance="outline">
-      <input
-        formControlName="comment"
-        matInput
-        placeholder="Post your comments"
-      />
-    </mat-form-field>
+    <form
+      class="blog-form"
+      novalidate
+      [formGroup]="createCommentForm"
+      (ngSubmit)="onSubmit(createCommentForm)"
+    >
+      <mat-form-field style="width: 95%" appearance="outline">
+        <input
+          formControlName="comment"
+          matInput
+          placeholder="Post your comments"
+        />
+      </mat-form-field>
 
-    <button mat-raised-button color="primary">Post</button>
-  </form>
+      <button mat-raised-button color="primary">Post</button>
+    </form>
+  </div>
 </mat-card>

@@ -1,13 +1,13 @@
-import { ngxLoadingAnimationTypes } from "ngx-loading";
-import { NgxLoadingModule } from "ngx-loading";
-import { MaterialModules } from "../../shared/material.models";
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 
-import { BlogRoutingModule } from "./blog-routing.module";
-import { CreateBlogComponent } from "./create-blog/create-blog.component";
-import { BlogsComponent } from "./blogs/blogs.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+
+import { MaterialModules } from '../../shared/material.models';
+import { BlogRoutingModule } from './blog-routing.module';
+import { BlogsComponent } from './blogs/blogs.component';
+import { CreateBlogComponent } from './create-blog/create-blog.component';
 
 @NgModule({
   declarations: [CreateBlogComponent, BlogsComponent],

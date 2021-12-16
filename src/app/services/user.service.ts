@@ -1,10 +1,10 @@
-import { BehaviorSubject, Observable } from "rxjs";
+import { BehaviorSubject, Observable } from 'rxjs';
 
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { IUser, LoginDTO, RegisterDTO } from "../models/user.interface";
-import { RestApiService } from "./rest-api.service";
+import { IUser, LoginDTO, RegisterDTO } from '../models/user.interface';
+import { RestApiService } from './rest-api.service';
 
 @Injectable({
   providedIn: "root",

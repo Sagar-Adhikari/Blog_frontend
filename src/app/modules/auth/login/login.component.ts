@@ -1,11 +1,11 @@
-import { GlobalService } from "src/app/global.service";
+import { GlobalService } from 'src/app/global.service';
 
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { FormBuilder, FormGroup, NgForm, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { SnackBarService } from "../../../services/snackbar.service";
-import { UserService } from "../../../services/user.service";
+import { SnackBarService } from '../../../services/snackbar.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: "app-login",

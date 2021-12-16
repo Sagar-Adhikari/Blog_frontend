@@ -1,7 +1,8 @@
-import { CreateBlogDetailsDTO, IBlog } from "../models/blog.interface";
-import { Injectable } from "@angular/core";
-import { RestApiService } from "./rest-api.service";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+import { CreateBlogDetailsDTO, IBlog } from '../models/blog.interface';
+import { RestApiService } from './rest-api.service';
 
 @Injectable({
   providedIn: "root",

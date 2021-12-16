@@ -1,14 +1,15 @@
-import { FormBuilder, FormGroup, NgForm, Validators } from "@angular/forms";
-import { environment } from "src/environments/environment.prod";
-
 import { IBlog } from "./../../../models/blog.interface";
-import { Component, OnInit } from "@angular/core";
+import { IComment } from "./../../../models/comment.interface";
 import { GlobalService } from "src/app/global.service";
 import { BlogService } from "src/app/services/blog.service";
-import { DomSanitizer } from "@angular/platform-browser";
 import { CommentService } from "src/app/services/comment.service";
-import { UserService } from "src/app/services/user.service";
 import { SnackBarService } from "src/app/services/snackbar.service";
+import { UserService } from "src/app/services/user.service";
+import { environment } from "src/environments/environment.prod";
+
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, NgForm, Validators } from "@angular/forms";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: "app-blogs",
@@ -17,6 +18,8 @@ import { SnackBarService } from "src/app/services/snackbar.service";
 })
 export class BlogsComponent implements OnInit {
   blogs: IBlog[] | undefined | null;
+
+  comments: IComment[] | undefined;
 
   private iconPath = environment.icon_image_path + "fakepath/";
   imgUrl: any = this.iconPath + "default.jpg";
@@ -39,11 +42,12 @@ export class BlogsComponent implements OnInit {
       allowFooter: true,
       pageTitle: "Blogs",
     });
-    const blogs = await this.getAllBlogs();
 
     this.createCommentForm = new FormBuilder().group({
       comment: ["", Validators.compose([Validators.required])],
     });
+
+    this.getAllBlogs();
   }
 
   async getAllBlogs(): Promise<IBlog[]> {
@@ -51,7 +55,13 @@ export class BlogsComponent implements OnInit {
     return this.blogs;
   }
 
-  comments() {
+  async getAllComments(): Promise<IComment[]> {
+    this.comments = await this._commentService.getAllComments();
+    return this.comments;
+  }
+
+  comment() {
+    this.getAllComments();
     this.commentButtonClicked = true;
   }
 
@@ -62,7 +72,9 @@ export class BlogsComponent implements OnInit {
     };
     try {
       this._globalService.setLoading(true);
-      const response = await this._commentService.createComment(data);
+      const res = await this._commentService.createComment(data);
+
+      await this._commentService.getAllComments;
       this._snackbarService.open("Commented");
       this._globalService.setLoading(false);
     } catch (error) {

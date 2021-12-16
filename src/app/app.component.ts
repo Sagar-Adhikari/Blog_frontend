@@ -1,7 +1,7 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
-import { GlobalService } from "./global.service";
-import { UserService } from "./services/user.service";
+import { GlobalService } from './global.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: "app-root",
