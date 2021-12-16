@@ -6,8 +6,6 @@ export const environment = {
   production: false,
   icon_image_path: "	http://dummy.restapiexample.com/api/v1/",
   serverURL: "http://localhost:3000",
-  serverImageUrl:
-    "http://localhost:3000" + "/assets/" + "upload" + "/image.jpg",
 };
 
 /*

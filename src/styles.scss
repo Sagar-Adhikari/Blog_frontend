@@ -11,7 +11,7 @@ body {
 router-outlet ~ * {
   background-color: white;
   border: 1px dashed rgba(114, 186, 94, 0.35);
-  //  position: absolute;
+
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -37,16 +37,6 @@ router-outlet ~ * {
 
 .small-font {
   font-size: 12px;
-}
-
-.page-title {
-  background-color: palegoldenrod;
-  background: linear-gradient(45deg, #f2fdfc, #d7e4ff);
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  overflow: hidden;
-  min-height: fit-content;
 }
 
 .content-right-align {
