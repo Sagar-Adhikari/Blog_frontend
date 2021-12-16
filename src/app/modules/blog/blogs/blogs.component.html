@@ -1,0 +1,54 @@
+<mat-card
+  class="example-card mat-elevation-z8"
+  style="margin: auto; margin-bottom: 5px; width: 50%"
+  *ngFor="let blog of blogs"
+>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title> Blog Title:{{ blog.blogName }}</mat-card-title>
+  </mat-card-header>
+
+  <div style="display: flex; justify-content: center">
+    <img
+      *ngIf="blog && blog.photoUrl"
+      style="height: 300px; width: 300px"
+      src="{{ blog.photoUrl }}"
+      alt="Red dot"
+    />
+  </div>
+  <br />
+
+  <div>
+    <strong>This is image path taken from static folder of local server</strong>
+    <br />
+    <br />
+
+    <mat-card-content>
+      <p>Description: {{ blog.description }}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>Created On: {{ blog.createdAt | date }}</p>
+    </mat-card-content>
+  </div>
+
+  <button mat-button (click)="comments()">Comments</button>
+
+  <div *ngIf="commentButtonClicked"></div>
+
+  <form
+    class="blog-form"
+    novalidate
+    [formGroup]="createCommentForm"
+    (ngSubmit)="onSubmit(createCommentForm)"
+  >
+    <mat-form-field style="width: 95%" appearance="outline">
+      <input
+        formControlName="comment"
+        matInput
+        placeholder="Post your comments"
+      />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Post</button>
+  </form>
+</mat-card>

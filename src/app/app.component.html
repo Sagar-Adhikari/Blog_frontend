@@ -1,0 +1,82 @@
+<div>
+  <ngx-loading [show]="loading"></ngx-loading>
+  <mat-toolbar color="primary" class="app-toolbar">
+    <div
+      style="display: flex; flex-direction: row; width: 100%"
+      *ngIf="userService.currentUser$ | async"
+    >
+      <mat-icon class="hambergur-menu" (click)="onNavbarClicked()"
+        >menu</mat-icon
+      >
+
+      <div class="toolbar-row">
+        <span style="font-size: 22px">Menu</span>
+      </div>
+
+      <div class="toolbar-row" style="display: inline">
+        <span>
+          <strong>Title</strong>
+        </span>
+        <span> - {{ pageTitle }} </span>
+      </div>
+      <div class="toolbar-row">
+        <button
+          class="toolbar-logout"
+          mat-button
+          routerLink="/auth/login"
+          (click)="userService.logout()"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container fullScreen class="sidenav-container">
+    <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewPort="true"
+      [opened]="isOpenSideNavBar"
+      *ngIf="userService.currentUser$ | async"
+    >
+      <mat-nav-list>
+        <a mat-list-item routerLink="/auth/user">Users</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/blog">Blogs</a>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/blog/create">Create Blog</a>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+      <div
+        class="fav-button"
+        *ngIf="pageTitle !== 'Create Blog' && userService.currentUser$ | async"
+      >
+        <a
+          style="text-decoration: none; cursor: pointer"
+          routerLink="/blog/create"
+        >
+          <button mat-fab color="primary">
+            <mat-icon>add</mat-icon>
+          </button>
+          <br />
+          <mat-label class="strong">Post Blog</mat-label>
+        </a>
+      </div>
+
+      <router-outlet></router-outlet>
+      <div
+        *ngIf="allowFooter && userService.currentUser$ | async"
+        class="app-footer"
+      >
+        <span>Developed By</span>
+        <span>Sagar Adhikari</span>
+        <span style="font-size: 10px">ph. No: 9843650962</span>
+        <span style="font-size: 10px">email: sgradhikari48@gmail.com</span>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
