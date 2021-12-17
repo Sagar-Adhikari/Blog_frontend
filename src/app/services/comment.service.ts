@@ -22,10 +22,6 @@ export class CommentService {
     const allComments: IComment[] = await this._restApiService.get(
       "/comment/comments"
     );
-    console.log(
-      "🚀 ~ file: comment.service.ts ~ line 25 ~ CommentService ~ getAllComments ~ allComments",
-      allComments
-    );
     return allComments;
   }
 }

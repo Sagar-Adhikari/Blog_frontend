@@ -72,7 +72,7 @@ export class BlogsComponent implements OnInit {
     };
     try {
       this._globalService.setLoading(true);
-      const res = await this._commentService.createComment(data);
+      await this._commentService.createComment(data);
       await this._commentService.getAllComments;
       this._snackbarService.open("Commented");
       this._globalService.setLoading(false);
